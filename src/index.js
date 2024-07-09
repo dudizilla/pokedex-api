@@ -22,6 +22,9 @@ const app = express();
 const PORT = process.env.PORT;
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.get('/', (req, res) => {
+  res.json({ message: 'Pokemon API' });
+})
 
 app.use("/api/v1/pokemons", v1PokemonRouter);
 app.use("/api/v1/trainers", v1TrainerRouter);
@@ -29,3 +32,5 @@ app.use("/api/v1/trainers", v1TrainerRouter);
 app.listen(PORT, () => {
   console.log(`API is listening on port ${PORT}`);
 });
+
+module.exports = app;
