@@ -1,5 +1,5 @@
 const express = require("express");
-const pokemonController = require("../../controllers/pokemonController");
+const pokemonController = require("../../../src/controllers/pokemonController");
 
 const router = express.Router();
 
