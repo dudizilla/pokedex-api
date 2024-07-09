@@ -15,8 +15,8 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 
-const v1PokemonRouter = require("../src/v1/routes/pokemonRoutes");
-const v1TrainerRouter = require("../src/v1/routes/trainerRoutes");
+const v1PokemonRouter = require("../api/v1/routes/pokemonRoutes");
+const v1TrainerRouter = require("../api/v1/routes/trainerRoutes");
 
 const app = express();
 const PORT = process.env.PORT;
