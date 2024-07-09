@@ -13,7 +13,4 @@ logs/
 # Editor/IDE specific files
 .vscode/
 .idea/
-
-# Dependency lock files
-package-lock.json
-yarn.lock
+.vercel
