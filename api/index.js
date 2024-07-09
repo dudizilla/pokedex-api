@@ -10,13 +10,13 @@ const options = {
       version: '1.0.0',
     },
   },
-  apis: ['./routes/*.js'], // path to the files where you've defined your endpoints
+  apis: ['./v1/routes/*.js'], // path to the files where you've defined your endpoints
 };
 
 const specs = swaggerJsdoc(options);
 
-const v1PokemonRouter = require("./v1/routes/pokemonRoutes");
-const v1TrainerRouter = require("./v1/routes/trainerRoutes");
+const v1PokemonRouter = require("../src/v1/routes/pokemonRoutes");
+const v1TrainerRouter = require("../src/v1/routes/trainerRoutes");
 
 const app = express();
 const PORT = process.env.PORT;
