@@ -1,8 +1,10 @@
 const pokemons = require("../database/Pokemon");
 
 const getAllPokemons = async () => {
-  const allPokemons = await pokemons.getAllPokemons(); //anything
-  return allPokemons;
+  const allPokemons = await pokemons.getAllPokemons(); 
+  sortedPokemons = allPokemons.sort((a, b) => a.id - b.id);
+
+  return sortedPokemons;
 };
 
 const getPokemonById = async (pokemonId) => {
