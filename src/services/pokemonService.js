@@ -1,7 +1,7 @@
 const pokemons = require("../database/Pokemon");
 
 const getAllPokemons = async () => {
-  const allPokemons = await pokemons.getAllPokemons();
+  const allPokemons = await pokemons.getAllPokemons(); //anything
   return allPokemons;
 };
 
