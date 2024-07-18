@@ -23,6 +23,7 @@ const PORT = process.env.PORT;
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.get('/', (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*' });
   res.json({ message: 'Pokemon API' });
 })
 
