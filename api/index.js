@@ -1,6 +1,7 @@
 const express = require("express");
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
+var cors = require('cors')
 
 const options = {
   definition: {
@@ -21,9 +22,10 @@ const v1TrainerRouter = require("../api/v1/routes/trainerRoutes");
 const app = express();
 const PORT = process.env.PORT;
 
+app.use(cors())
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.get('/', (req, res) => {
-  res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*' });
   res.json({ message: 'Pokemon API' });
 })
 
