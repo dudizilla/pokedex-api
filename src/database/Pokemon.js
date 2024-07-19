@@ -25,8 +25,8 @@ const main = async () => {
     await connectToDataBase();
   } catch (err) {
     console.error(`Error: ${err}`);
-  } finally {
-    await client.close();
+  // } finally {
+  //   await client.close();
   }
 }
 
