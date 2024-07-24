@@ -1,10 +1,30 @@
 const pokemons = require("../database/Pokemon");
+const { z } = require("zod");
+
+const PokemonSchema = z.object({
+  name: z.string(),
+  id: z.number(),
+  type: z.string().array(),
+  ability: z.string().array(),
+  image: z.string(),
+  base: z.object({
+    hp: z.number(),
+    attack: z.number(),
+    defense: z.number(),
+    sp_attack: z.number(),
+    sp_defense: z.number(),
+    speed: z.number(),
+  }),
+});
 
 const getAllPokemons = async () => {
   const allPokemons = await pokemons.getAllPokemons(); 
   sortedPokemons = allPokemons.sort((a, b) => a.id - b.id);
 
-  return sortedPokemons;
+  const sanitizedPokemons = sortedPokemons.map((pokemon) =>
+    PokemonSchema.parse(pokemon)
+  )
+  return sanitizedPokemons;
 };
 
 const getPokemonById = async (pokemonId) => {
